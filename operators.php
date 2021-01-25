@@ -1,5 +1,5 @@
 <?php
-
+$br = '</br>';
 $a = 3;
 $b = 4;
 $d = "4";
@@ -12,5 +12,10 @@ if($z > $b && $z > $a){
 }else{
     echo 'is false';
 }
+
+$a = $a + 1;
+$a++;
+echo $br.$a;
+
 
 ?>
