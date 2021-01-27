@@ -1,3 +1,3 @@
 <?php
-    echo "Hi world, since php";
+    require_once('Layout/layout.php');
 ?>
