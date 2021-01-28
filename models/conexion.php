@@ -7,12 +7,12 @@ $pass = '';
 try {
     $pdo = new PDO($link,$user,$pass);
 
-    echo 'Conected...!';
-    echo '<pre>';
-    foreach ($pdo->query('select * from `colors`') as $row) {
-        print_r($row);
-    }
-    echo '</pre>';
+    // echo 'Conected...!';
+    // echo '<pre>';
+    // foreach ($pdo->query('select * from `colors`') as $row) {
+    //     print_r($row);
+    // }
+    // echo '</pre>';
 
 
 
