@@ -1,3 +1,8 @@
+<?php
+include('urls.php');
+// var_dump($urls);
+$currentPage = $_SERVER["SCRIPT_NAME"];
+?>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="/">NodeJs</a>
     <button
@@ -14,42 +19,16 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">
-                    Home
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/variables.php">Variables</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/hi.php">Hi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/operators.php">Operators</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/conditionals.php">Conditionals</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/html.php">Html</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/associative-array.php">associative-array</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/switch.php">Switch</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/functions.php">Functions</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/colors.php">Colors</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/test.php">404</a>
-            </li>
+            <?php foreach($urls as $name=>$url): ?>
+                <li class="nav-item <?php if ($currentPage === $url) echo 'active' ?>">
+                    <a class="nav-link" href="<?php echo $url ?>">
+                        <?php echo $name ?>
+                        <?php if($name == 'Home') : ?>
+                            <span class="sr-only">(current)</span>
+                        <?php endif ?>
+                    </a>
+                </li>
+            <?php endforeach ?>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input
