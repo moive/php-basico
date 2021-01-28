@@ -19,6 +19,10 @@ $sql_edit = 'UPDATE colors SET color=?,description=? WHERE id=?';
 $run_edit = $pdo->prepare($sql_edit);
 $run_edit->execute(array($color,$description,$id));
 
+// close conexion
+$run_edit = null;
+$pdo = null;
+
 header('location:/colors.php')
 
 ?>

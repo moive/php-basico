@@ -47,10 +47,6 @@
                     data-toggle="modal"
                     data-target="#exampleModal"
                 >
-                <!-- <a 
-                    href="./models/delete.php?id=<?php echo $value['id'] ?>"
-                    class="float-right ml-3"
-                > -->
                     <i class="far fa-trash-alt"></i>
                 </a>
                 <a 
@@ -104,3 +100,10 @@
         </div>
     </div>
 </div>
+
+<?php
+
+$pdo = null;
+$gsent = null;
+
+?>
