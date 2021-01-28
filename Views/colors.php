@@ -42,6 +42,18 @@
                 -
                 <span><?php echo $value['description'] ?></span>
                 <a 
+                    href="./models/delete.php?id=<?php echo $value['id'] ?>"
+                    class="float-right ml-3"
+                    data-toggle="modal"
+                    data-target="#exampleModal"
+                >
+                <!-- <a 
+                    href="./models/delete.php?id=<?php echo $value['id'] ?>"
+                    class="float-right ml-3"
+                > -->
+                    <i class="far fa-trash-alt"></i>
+                </a>
+                <a 
                     href="/colors?id=<?php echo $value['id'] ?>" 
                     class="float-right"
                 >
@@ -70,5 +82,25 @@
             <button class="btn btn-primary">Save</button>
         </form>
         <?php endif ?>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="exampleModalLabel">Delete item</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <a href="./models/delete.php?id=<?php echo $value['id'] ?>" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
     </div>
 </div>
