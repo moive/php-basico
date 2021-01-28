@@ -45,6 +45,9 @@
                 <a class="nav-link" href="/functions.php">Functions</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/colors.php">Colors</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/test.php">404</a>
             </li>
         </ul>
