@@ -1,18 +1,19 @@
 <?php
     include_once('./models/conexion.php');
-
+    
     $sql = 'select * from colors';
-
+    
     $gsent = $pdo->prepare($sql);
     $gsent->execute();
-
+    
     $result = $gsent->fetchAll();
-
+    
     // var_dump($result);
-
+    
     //Add items
-
+    
     if ($_POST) {
+        
         $color = $_POST['color'];
         $description = $_POST['description'];
         // echo $color;
@@ -20,7 +21,11 @@
         $insert = 'INSERT INTO colors (color,description) VALUES (?,?)';
         $add_sql = $pdo->prepare($insert);
         $add_sql->execute(array($color,$description));
-        header('location:colors.php');
+
+        $add_sql = null;
+        $pdo = null;
+        header('location:/colors.php');
+        // echo '<script>window.location="/colors.php"</script>';
     }
 
     if($_GET){
@@ -32,6 +37,7 @@
 
         // var_dump($result_unique);
     }
+
 ?>
 
 <div class="row">
@@ -42,13 +48,13 @@
                 -
                 <span><?php echo $value['description'] ?></span>
                 <a 
-                    href="./models/delete.php?id=<?php echo $value['id'] ?>"
-                    class="float-right ml-3"
-                    data-toggle="modal"
-                    data-target="#exampleModal"
+                    href="#"
+                    data-id="<?php echo $value['id'] ?>"
+                    class="float-right ml-3 run"
                 >
                     <i class="far fa-trash-alt"></i>
                 </a>
+                <span class="active-popup" data-toggle="modal" data-target="#exampleModal"></span>
                 <a 
                     href="/colors?id=<?php echo $value['id'] ?>" 
                     class="float-right"
@@ -95,7 +101,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <a href="./models/delete.php?id=<?php echo $value['id'] ?>" class="btn btn-danger">Delete</a>
+                <a href="./models/delete.php?id=" class="btn btn-danger btn-delete">Delete</a>
             </div>
         </div>
     </div>
@@ -105,5 +111,4 @@
 
 $pdo = null;
 $gsent = null;
-
 ?>
