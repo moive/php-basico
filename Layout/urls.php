@@ -10,6 +10,7 @@ $urls = array(
     'Switch' => '/switch.php',
     'Functions' => '/functions.php',
     'Colors' => '/colors.php',
+    'Session' => '/session.php',
     '404' => '/404.php',
 );
 
