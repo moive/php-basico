@@ -1,0 +1,5 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+#RewriteRule ExpressionRegular UrlDestination [flags]
+RewriteRule ^([a-zA-Z0-9]*)$ data.php?variable=$1

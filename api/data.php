@@ -1,6 +1,8 @@
 <?php
 $data = ['dollar'=>500,'euro'=>600];
 
-echo json_encode($data);
+$get = $_GET['variable'];
+
+echo json_encode($get);
 
 ?>
