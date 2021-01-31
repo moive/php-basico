@@ -13,6 +13,7 @@ $urls = array(
     'Session' => '/session.php',
     'Register' => '/register.php',
     'Api' => '/api.php',
+    'Pagination' => '/pagination.php',
     '404' => '/404.php',
 );
 
