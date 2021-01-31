@@ -11,6 +11,7 @@ $urls = array(
     'Functions' => '/functions.php',
     'Colors' => '/colors.php',
     'Session' => '/session.php',
+    'Register' => '/register.php',
     '404' => '/404.php',
 );
 
