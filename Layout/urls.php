@@ -12,6 +12,7 @@ $urls = array(
     'Colors' => '/colors.php',
     'Session' => '/session.php',
     'Register' => '/register.php',
+    'Api-demo' => '/api-demo.php',
     '404' => '/404.php',
 );
 
