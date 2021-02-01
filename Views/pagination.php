@@ -4,7 +4,7 @@ include_once('./models/conexion-pagination.php');
 $sql = 'SELECT * FROM articles';
 $run_sql = $pdo->prepare($sql);
 $run_sql->execute();
-
+$br = '<br/>';
 $result = $run_sql->fetchAll();
 // var_dump($result);
 
@@ -14,14 +14,32 @@ $totalItems = $run_sql->rowCount();
 
 $page = ceil($totalItems/3);
 
-echo $page;
+// echo $page.$br;
+if(!isset($_GET['page'])){
+    header('Location:/pagination.php?page=1');
+}
+
+if($_GET['page']>$page || $_GET['page']<=0){
+    header('Location:/pagination.php?page=1');
+}
+
+$init = ($_GET['page']-1)*$itemPerPage;
+
+$sql_articles = 'SELECT * FROM articles LIMIT :initialize,:item_per_page';
+$run_select_articles = $pdo->prepare($sql_articles);
+$run_select_articles->bindParam(':initialize', $init, PDO::PARAM_INT);
+$run_select_articles->bindParam(':item_per_page', $itemPerPage, PDO::PARAM_INT);
+$run_select_articles->execute();
+
+$result_select_items = $run_select_articles->fetchAll();
+
 
 ?>
 
 <h2>Pagination</h2>
-<?php foreach($result as $article):?>
+<?php foreach($result_select_items as $item):?>
 <div class="alert alert-primary" role="alert">
-    <?php echo $article['title']?>
+    <?php echo $item['title']?>
 </div>
 <?php endforeach ?>
 <nav aria-label="Page navigation example">
